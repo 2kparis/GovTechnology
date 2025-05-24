@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Education and Awareness Campaigns</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: rgba(0, 0, 0, 0.85);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      color: #007aff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #007aff;
+    }
+
+    .nav-links li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #111;
+      display: none;
+      flex-direction: column;
+      min-width: 150px;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .nav-links li:hover ul {
+      display: flex;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .nav-links li ul li {
+      padding: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links li ul li:hover {
+      background-color: #333;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero-section {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 100px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .tooltip-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip-wrapper h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .custom-tooltip {
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #007aff;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      font-size: 0.9rem;
+      z-index: 10;
+    }
+
+    .tooltip-wrapper:hover .custom-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-5px);
+    }
+
+    .hero-section p {
+      font-size: 1rem;
+      color: #ccc;
+      max-width: 700px;
+    }
+
+    @media (max-width: 600px) {
+      .hero-section h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero-section p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .section img:hover {
+      transform: scale(1.05);
+    }
+
+    .section h2 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+    .section li {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    footer {
+      padding: 40px;
+      text-align: center;
+      background: #000;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<nav>
+    <div class="nav-logo">GovTech</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li>
+        <a href="egovernance.html">E-Governance</a>
+        <ul>
+        <li><a href="egovernance.html" >E-Governance</a></li>
+          <li><a href="GovernmentCommunication.html">Government Communication</a></li>
+           <li><a href="E-Services.html">E-Services</a></li>
+          <li><a href="International Relations.html">International Relations</a></li>
+        </ul>
+      </li>
+      <li><a href="Data Collection.html">Data Collection and Decision-Making</a></li>
+      <li><a href="digital democracy.html">Digital Democracy</a></li>
+      <li><a href="National Security.html" >National Security</a></li>
+      <li><a href="Public Education And Awarness campaigns.html" class="active">Awareness Campaigns</a></li>
+      <li><a href="Pros And Cons.html">Pros & Cons</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="vida.mp4" type="video/mp4">
+    </video>
+    <div class="hero-section">
+      <div class="tooltip-wrapper">
+        <h1>Public Education and Awareness Campaigns</h1>
+        <span class="custom-tooltip">Informing and educating citizens through digital channels</span>
+      </div>
+      <p>Supporting societal well-being and informed citizenship through digital education and awareness campaigns.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div>
+      <h2>Public Education and Awareness Campaigns</h2>
+      <p>
+        Governments use websites, apps, and social media to inform and educate citizens about health, legal rights,
+financial literacy, and more. This supports societal well-being and informed citizenship.
+      </p>
+    </div>
+    <img src="imgac.jpg" alt="Public Education and Awareness Campaigns Overview">
+  </section>
+
+  <section class="section">
+  <img src="imgac2.jpg" alt="Online Services" class="section-img">
+  <div class="section-content">
+    <h2>Examples</h2>
+    <ul>
+      <li>NHS websites for public health guidance</li>
+      <li>DVLA apps for learner drivers</li>
+      <li>Climate change education on government YouTube channels</li>
+    </ul>
+  </div>
+</section>
+
+   <section class="section">
+    <div>
+      <h2>Benefits</h2>
+      <p>
+        <li>Wide and inclusive reach</li>
+        <li>Low-cost public awareness delivery</li>
+        <li>Promotes civic responsibility</li>
+      </p>
+    </div>
+    <img src="imgac3.jpg" alt="Public Education and Awareness Campaigns Overview">
+  </section>
+
+  <section class="section">
+ <img src="imgac4.jpg" alt="Online Services" class="section-img">
+<div class="section-content">
+  <h2>Challenges</h2>
+  <ul>
+    <li>Information overload or digital fatigue</li>
+    <li>Misinformation spread through unofficial channels</li>
+    <li>Ensuring content is accessible to all literacy levels</li>
+  </ul>
+  </section>
+
+  <footer style="background-color: #000; color: #ccc; padding: 60px 40px;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: auto; text-align: left;">
+    
+    <div>
+      <h3 style="color: #fff; margin-bottom: 15px;">Design Resources</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://www.pexels.com" target="_blank" style="color: #ccc; text-decoration: none;">Pexels (Design & Video)</a></li>
+        <li><a href="https://www.freepik.com" target="_blank" style="color: #ccc; text-decoration: none;">Freepik (Media)</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="color: #fff; margin-bottom: 15px;">Information Sources</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://www.universalinstitutions.com" target="_blank" style="color: #ccc; text-decoration: none;">Universal Institutions</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="color: #fff; margin-bottom: 15px;">Development</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://www.github.com" target="_blank" style="color: #ccc; text-decoration: none;">GitHub (CSS & Code)</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="color: #fff; margin-bottom: 15px;">About</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#" style="color: #ccc; text-decoration: none;">GovTech Ghana</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Student Initiative</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Contact Us</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <p style="text-align: center; margin-top: 40px; color: #888;">&copy;I.T in Government. Designed for students, by a student.</p>
+</footer>
+
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
